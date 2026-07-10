@@ -11,7 +11,7 @@ item is treated as the conclusion; the item before it is the final premise
 and gets underlined.
 
 ```typst
-#import "@preview/standard-form:0.1.0": standard-form
+#import "@preview/standard-form:0.2.0": standard-form
 
 #standard-form[
   1. All humans are mortal
@@ -27,12 +27,12 @@ This produces:
 &nbsp;&nbsp;&nbsp;Socrates is mortal.
 
 Until the package is published, symlink it into Typst's local package
-directory and import it as `@local/standard-form:0.1.0` instead (see
+directory and import it as `@local/standard-form:0.2.0` instead (see
 `example/example.typ`):
 
 ```sh
 mkdir -p ~/Library/"Application Support"/typst/packages/local/standard-form
-ln -s /path/to/typst-standard-form ~/Library/"Application Support"/typst/packages/local/standard-form/0.1.0
+ln -s /path/to/typst-standard-form ~/Library/"Application Support"/typst/packages/local/standard-form/0.2.0
 ```
 
 ### Options
