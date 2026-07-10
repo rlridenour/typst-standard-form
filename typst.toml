@@ -1,0 +1,10 @@
+[package]
+name = "standard-form"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Randy Ridenour"]
+license = "MIT"
+description = "Format an ordered list as a standard-form logical argument: numbered premises, a rule under the final premise, and an unnumbered conclusion."
+repository = "https://github.com/rlridenour/typst-standard-form"
+keywords = ["logic", "argument", "philosophy"]
+compiler = "0.11.0"
