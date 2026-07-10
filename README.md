@@ -14,9 +14,9 @@ and gets underlined.
 #import "@preview/standard-form:0.1.0": standard-form
 
 #standard-form[
-  + All humans are mortal
-  + Socrates is human.
-  + Socrates is mortal.
+  1. All humans are mortal
+  2. Socrates is human.
+  3. Socrates is mortal.
 ]
 ```
 
@@ -45,8 +45,8 @@ ln -s /path/to/typst-standard-form ~/Library/"Application Support"/typst/package
 
 ```typst
 #standard-form(numbering-style: "(1)", stroke: 1pt)[
-  + All humans are mortal
-  + Socrates is human.
-  + Socrates is mortal.
+  1. All humans are mortal
+  2. Socrates is human.
+  3. Socrates is mortal.
 ]
 ```
