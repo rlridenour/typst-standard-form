@@ -31,7 +31,7 @@
         (push pos result)))))
 
 ;;;###autoload
-(defun rlr/org-make-standard-form ()
+(defun rlr/org-make-standard-form-handout ()
   "Turn the plain list at point into a standard-form argument.
 
 Replaces the list with two copies: the first rewritten as an
@@ -64,6 +64,29 @@ a \"#+begin_export typst\" block using `#standard-form[...]', for the
     (goto-char beg)
     (delete-region beg end)
     (insert html-block "\n" typst-block)))
+
+;;;###autoload
+(defun rlr/org-make-standard-form-slide ()
+  "Turn the plain list at point into a standard-form argument. Wrap the list verbatim in a \"#+begin_export typst\" block using `#standard-form[...]', for the `standard-form' Typst package."
+  (interactive)
+  (unless (org-in-item-p)
+    (user-error "Point is not inside an org list"))
+  (let* ((struct (org-list-struct))
+         (beg (org-list-get-top-point struct))
+         (end (org-list-get-bottom-point struct))
+         (orig-text (string-trim-right (buffer-substring-no-properties beg end)))
+         (items (mapcar (lambda (pos) (rlr/org-standard-form--item-text pos struct))
+                         (rlr/org-standard-form--top-level-item-positions struct)))
+         (typst-block
+          (concat "#+begin_export typst\n"
+                  "#standard-form[\n"
+                  orig-text "\n"
+                  "]\n"
+                  "#+end_export\n")))
+    (goto-char beg)
+    (delete-region beg end)
+    (insert typst-block)))
+
 
 (provide 'rlr-org-standard-form)
 ;;; rlr-org-standard-form.el ends here
